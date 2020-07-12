@@ -2,6 +2,7 @@
 
 namespace abouterf\User\Http\Controllers\Auth;
 
+use abouterf\User\Http\Requests\VerifyCodeRequest;
 use abouterf\User\Services\VerifyCodeService;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -49,19 +50,11 @@ class VerificationController extends Controller
             : view('User::Front.verify');
     }
 
-    public function verify(Request $request)
+    public function verify(VerifyCodeRequest $request)
     {
-        $this->validate($request,[
-            'verify_code' => 'required|numeric|min:6'
-        ]);
-
-        $code =VerifyCodeService::get(auth()->id());
-        if ($code == $request->verify_code){
-            auth()->user()->markEmailAsVerified();
-            VerifyCodeService::delete(auth()->id());
-            return redirect('home');
-        }
-
-        return back()->withErrors(['verify_code' => 'کد وارد شده صحیح نمیباشد.']);
+        if (!VerifyCodeService::check(auth()->id(), $request->verify_code))
+            return back()->withErrors(['verify_code' => 'کد وارد شده صحیح نمیباشد.']);
+        auth()->user()->markEmailAsVerified();
+        return redirect()->route('home');
     }
 }

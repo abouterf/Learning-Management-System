@@ -6,9 +6,12 @@ namespace abouterf\User\Services;
 
 class VerifyCodeService
 {
+    private static $min = 100000;
+    private static $max = 999999;
+
     public static function generate()
     {
-        return random_int(100000, 999999);
+        return random_int(self::$min, self::$max);
     }
 
     public static function store($id, $code)
@@ -27,5 +30,19 @@ class VerifyCodeService
     public static function delete($id)
     {
         cache()->delete('verify_code_'.$id);
+    }
+
+    public static function getRule()
+    {
+        return 'required|numeric|between:'.self::$min.','.self::$max;
+
+    }
+
+    public static function check($id , $code)
+    {
+
+        if (self::get($id) != $code) return false;
+        self::delete($id);
+        return true;
     }
 }
