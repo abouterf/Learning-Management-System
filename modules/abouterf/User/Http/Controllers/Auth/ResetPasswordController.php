@@ -2,6 +2,8 @@
 
 namespace abouterf\User\Http\Controllers\Auth;
 
+use abouterf\User\Http\Requests\ChangePasswordRequest;
+use abouterf\User\Services\UserService;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -31,8 +33,14 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('auth.User::Front.passwords.reset')->with(
+        return view('User::Front.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
+    }
+
+    public function reset(ChangePasswordRequest $request)
+    {
+        UserService::changePassword(auth()->user(),$request->password);
+        return redirect('home');
     }
 }
