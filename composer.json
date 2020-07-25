@@ -37,7 +37,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "abouterf\\User\\" : "modules/abouterf/User/"
+            "abouterf\\User\\" : "modules/abouterf/User/",
+            "abouterf\\Dashboard\\" : "modules/abouterf/Dashboard/"
         },
         "classmap": [
             "database/seeds",

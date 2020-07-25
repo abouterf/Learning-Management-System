@@ -35,4 +35,3 @@ Route::get('/test', function () {
 //testing email template
 
 
-Route::get('/home', 'HomeController@index')->name('home');

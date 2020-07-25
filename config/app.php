@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         \abouterf\User\Providers\UserServiceProvider::class,
+        \abouterf\Dashboard\Providers\DashboardServiceProvider::class,
 
         /*
          * Package Service Providers...
