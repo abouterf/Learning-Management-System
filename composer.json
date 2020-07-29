@@ -38,7 +38,8 @@
         "psr-4": {
             "App\\": "app/",
             "abouterf\\User\\" : "modules/abouterf/User/",
-            "abouterf\\Dashboard\\" : "modules/abouterf/Dashboard/"
+            "abouterf\\Dashboard\\" : "modules/abouterf/Dashboard/",
+            "abouterf\\Category\\" : "modules/abouterf/Category/"
         },
         "classmap": [
             "database/seeds",

@@ -1,5 +1,5 @@
 <?php
 
-Route::group(['namespace' => 'abouterf\Dashboard\Http\Controllers'], function ($router) {
+Route::group(['namespace' => 'abouterf\Dashboard\Http\Controllers','middleware'=>['web','auth','verified']], function ($router) {
     $router->get('/home', 'DashboardController@index')->name('home');
 });

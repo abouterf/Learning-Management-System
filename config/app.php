@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         \abouterf\User\Providers\UserServiceProvider::class,
         \abouterf\Dashboard\Providers\DashboardServiceProvider::class,
+        \abouterf\Category\Providers\CategoryServiceProvider::class,
 
         /*
          * Package Service Providers...
