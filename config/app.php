@@ -161,9 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        \abouterf\User\Providers\UserServiceProvider::class,
-        \abouterf\Dashboard\Providers\DashboardServiceProvider::class,
-        \abouterf\Category\Providers\CategoryServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -177,7 +175,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        \abouterf\User\Providers\UserServiceProvider::class,
+        \abouterf\Dashboard\Providers\DashboardServiceProvider::class,
+        \abouterf\Category\Providers\CategoryServiceProvider::class,
     ],
 
     /*

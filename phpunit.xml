@@ -17,6 +17,9 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./modules/abouterf/User/Tests/Feature</directory>
         </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./modules/abouterf/Category/Tests/Feature</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">

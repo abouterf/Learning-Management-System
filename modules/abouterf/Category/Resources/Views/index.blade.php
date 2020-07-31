@@ -1,5 +1,8 @@
 @extends('Dashboard::master')
 @section('content')
+    @section('breadcrumb')
+        <li><a href="#" title="دسته بندی ها">دسته بندی ها</a></li>
+    @endsection
     <div class="row no-gutters  ">
         <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
             <p class="box__title">دسته بندی ها</p>
