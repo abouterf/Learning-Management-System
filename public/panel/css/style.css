@@ -131,6 +131,7 @@ a, span {
     text-align: right;
     font-size: 13px !important;
 }
+
 textarea {
     resize: none;
     padding: 12px;
@@ -143,15 +144,18 @@ textarea {
     font-size: 13px;
 }
 
-.margin-bottom-0{
+.margin-bottom-0 {
     margin-bottom: 0 !important;
 }
+
 .border-bottom {
     border-bottom: 1px solid #e2e2e2;
 }
-.border-2{
+
+.border-2 {
     border: 2px solid #e2e2e2;
 }
+
 .border-top {
     border-top: 1px solid #e2e2e2;
 }
@@ -410,6 +414,7 @@ textarea {
     background-color: #259ee3 !important;
     transition: background-color 200ms;
 }
+
 .overflow-x-hidden {
     overflow-x: hidden;
 }
@@ -442,7 +447,8 @@ textarea {
     border-spacing: 0;
     width: 100%;
 }
-.table__box{
+
+.table__box {
     overflow-x: scroll;
     width: 100%;
 }
@@ -658,9 +664,11 @@ textarea {
 .sidebar__nav .i-discounts a::before {
     content: "\E020";
 }
-.bg-fafafa{
+
+.bg-fafafa {
     background-color: #fafafa;
 }
+
 .sidebar__nav .i-checkouts a::before {
     content: "\E0e5";
 }
@@ -949,9 +957,11 @@ textarea {
 .margin-left-20 {
     margin-left: 20px;
 }
+
 .margin-left-15 {
     margin-left: 15px;
 }
+
 .i__oprations {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -963,12 +973,14 @@ textarea {
     -webkit-box-align: center;
     align-items: center;
 }
-.box__title{
+
+.box__title {
     background: #f9f9f9;
     white-space: nowrap;
     font-size: 15px;
     padding: 15px 30px;
 }
+
 .title__row {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -1002,15 +1014,18 @@ textarea {
     font-size: 16px;
 
 }
+
 .item-eye:before {
     content: '\e065';
     font-size: 14px;
 }
+
 .item-lock:before {
     content: '\E0c4';
     font-size: 16px;
 
 }
+
 .item-answer:before {
     content: '\e037';
     font-size: 16px;
@@ -1020,16 +1035,19 @@ textarea {
     content: '\e141';
     font-size: 16px;
 }
-.tab__box{
+
+.tab__box {
     background: #fff;
     margin-bottom: 30px;
     border-radius: 3px;
 }
-.tab__box .tab__items{
+
+.tab__box .tab__items {
     /*white-space: nowrap;*/
     /*overflow-x: scroll;*/
     padding: 8px 10px;
 }
+
 .tab__box .tab__item {
     color: #8f9395;
     padding: 5px 11px;
@@ -1044,9 +1062,11 @@ textarea {
     text-align: center;
     color: #444;
 }
-.main-content{
+
+.main-content {
     padding: 30px;
 }
+
 .breadcrumb ul {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -1066,9 +1086,11 @@ textarea {
     color: #636e72;
     font-size: 12px;
 }
-.breadcrumb ul li a.is-active{
+
+.breadcrumb ul li a.is-active {
     color: #2b4a83;
 }
+
 .breadcrumb ul li:before {
     content: "/";
     color: #636e72;
@@ -1079,7 +1101,7 @@ textarea {
     margin-left: 8px;
     padding-right: 8px;
     position: relative;
-    top:2px;
+    top: 2px;
 }
 
 .breadcrumb ul li:first-child:before {
@@ -1091,6 +1113,7 @@ textarea {
 select {
     display: none;
 }
+
 .dropdown-select {
     margin-bottom: 15px;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
@@ -1133,14 +1156,17 @@ select {
     background-color: #fff !important;
     border-color: #46b2f0;
 }
-.discounts .dropdown-select{
+
+.discounts .dropdown-select {
     display: none;
 }
+
 .discounts .dropdown-select.is-active {
 
     display: block;
 
 }
+
 .dropdown-select:after {
     height: 0;
     width: 0;
@@ -1328,7 +1354,6 @@ select {
 }
 
 
-
 .tags-input-ul .remove-tag:before {
     content: '\e041';
 }
@@ -1385,12 +1410,13 @@ select {
 .tags-input .remove-tag:hover {
     opacity: 1;
 }
+
 @media (max-width: 414px) {
-  .tab__item{
-      width: 100%;
-      text-align: center;
-      margin-bottom: 5px;
-  }
+    .tab__item {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
 }
 
 @media (max-width: 346px) {
@@ -1403,18 +1429,22 @@ select {
         left: 67px;
     }
 }
+
 .all-confirm-btn {
     background: #4dd073;
     color: #fff !important;
     margin-left: 5px;
 }
-.operations__btns button{
+
+.operations__btns button {
     margin-left: 5px;
     margin-bottom: 10px;
 }
-.operations__btns button:last-child{
-    margin-left: 0!important;
+
+.operations__btns button:last-child {
+    margin-left: 0 !important;
 }
+
 .confirm-btn {
     background: #40c8c8;
     color: #fff !important;
@@ -1429,6 +1459,7 @@ select {
     background: #ff426e;
     color: #fff !important;
 }
+
 .ui-checkbox {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -1444,6 +1475,8 @@ select {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    padding-right: 32px !important;
+
 }
 
 .ui-checkbox input {
@@ -1485,6 +1518,7 @@ select {
     display: -webkit-box;
     display: flex;
 }
+
 .notificationGroup {
     background-color: #fff;
     display: block;
@@ -1569,10 +1603,12 @@ select {
     cursor: pointer;
     visibility: hidden;
 }
-.w-50{
+
+.w-50 {
     width: 50%;
 }
-.t-header-search{
+
+.t-header-search {
     width: 35%;
     position: relative;
 }
@@ -1601,7 +1637,8 @@ select {
     transform: rotate(-180deg);
     top: 37%;
 }
-.t-header-search-content{
+
+.t-header-search-content {
     position: absolute;
     display: none;
     width: 100%;
@@ -1612,10 +1649,12 @@ select {
     padding: 20px;
     background-color: #fff;
 }
-.t-header-search-content input{
+
+.t-header-search-content input {
     font-size: 13px !important;
 }
-.img__slideshow{
+
+.img__slideshow {
     width: 130px;
     height: 80px;
 }
@@ -1696,9 +1735,11 @@ select {
 .t--body {
     background: #eee;
 }
-.transition-comment.is-answer,.transition-ticket.is-answer{
+
+.transition-comment.is-answer, .transition-ticket.is-answer {
     border-right: 3px solid #00b894;
 }
+
 .transition-ticket .transition-ticket-header, .transition-comment .transition-comment-header {
     background-color: #f8f9fa;
     height: 80px;
@@ -1751,6 +1792,7 @@ select {
     color: #b2b6bb;
     font-size: 14px;
 }
+
 .tickets .close-status td {
     opacity: .3;
 }
@@ -1872,7 +1914,8 @@ select {
     border-radius: 2px;
     font-size: 14px;
 }
-.notification__box{
+
+.notification__box {
     background: #fff;
     border: 2px solid #e2e2e2;
     padding: 20px;
@@ -1880,9 +1923,20 @@ select {
     margin-left: 5px;
     margin-bottom: 10px;
 }
-.notification__box:first-of-type  p{
+
+.notification__box:first-of-type p {
     padding: 15px 10px;
 }
-.notification__box .title__noti{
+
+.notification__box .title__noti {
     padding: 15px 0;
+}
+
+
+.pt-1 {
+    padding-top: 10px;
+}
+
+.mt-1{
+    margin-top: 10px;
 }

@@ -6,6 +6,15 @@ Route::get('/', function () {
 });
 
 
+Route::get('/test', function () {
+//    auth()->user()->givePermissionTo('manage cats');
+//    return auth()->user()->permissions;
+//    \Spatie\Permission\Models\Permission::create(['name' => 'manage role_permissions']);
+    auth()->user()->givePermissionTo('manage role_permissions');
+    return auth()->user()->permissions;
+});
+
+
 //testing temporary signed route
 
 /*Route::get('/test-verify/{user}/', function () {
@@ -22,8 +31,6 @@ Route::get('/test', function () {
 });*/
 
 //testing temporary signed route
-
-
 
 
 //testing email template

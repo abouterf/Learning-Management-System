@@ -2,6 +2,7 @@
 return [
     'items' => [
         'dashboard' => [],
-        'categories' => []
+        'categories' => [],
+        'role-permissions' => [],
     ]
 ];

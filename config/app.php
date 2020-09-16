@@ -178,6 +178,7 @@ return [
         \abouterf\User\Providers\UserServiceProvider::class,
         \abouterf\Dashboard\Providers\DashboardServiceProvider::class,
         \abouterf\Category\Providers\CategoryServiceProvider::class,
+        \abouterf\RolePermissions\Providers\RolePermissionServiceProvider::class,
     ],
 
     /*
