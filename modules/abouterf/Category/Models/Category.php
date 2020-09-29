@@ -10,7 +10,7 @@ class Category extends Model
 
     public function getParentAttribute()
     {
-        return (!$this->parent_id) ? 'ندارد' : $this->parentCategory->title;
+        return !$this->parentCategory || !$this->parent_id ? 'ندارد' : $this->parentCategory->title;
     }
 
     public function parentCategory()

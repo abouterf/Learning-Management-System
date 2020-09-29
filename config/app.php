@@ -179,6 +179,7 @@ return [
         \abouterf\Dashboard\Providers\DashboardServiceProvider::class,
         \abouterf\Category\Providers\CategoryServiceProvider::class,
         \abouterf\RolePermissions\Providers\RolePermissionServiceProvider::class,
+        \abouterf\Course\Providers\CourseServiceProvider::class,
     ],
 
     /*

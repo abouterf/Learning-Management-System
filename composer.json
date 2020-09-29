@@ -38,10 +38,11 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "abouterf\\User\\" : "modules/abouterf/User/",
-            "abouterf\\Dashboard\\" : "modules/abouterf/Dashboard/",
-            "abouterf\\Category\\" : "modules/abouterf/Category/",
-            "abouterf\\RolePermissions\\" : "modules/abouterf/RolePermissions/"
+            "abouterf\\User\\": "modules/abouterf/User/",
+            "abouterf\\Dashboard\\": "modules/abouterf/Dashboard/",
+            "abouterf\\Category\\": "modules/abouterf/Category/",
+            "abouterf\\RolePermissions\\": "modules/abouterf/RolePermissions/",
+            "abouterf\\Course\\": "modules/abouterf/Course/"
         },
         "classmap": [
             "database/seeds",

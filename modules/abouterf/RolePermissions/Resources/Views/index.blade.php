@@ -1,69 +1,52 @@
 @extends('Dashboard::master')
 @section('content')
-    @section('breadcrumb')
-        <li><a href="{{route('role-permissions.index')}}" title="نقش های کاربری">نقش های کاربری</a></li>
-    @endsection
-    <div class="row no-gutters  ">
-        <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
-            <p class="box__title">نقش های کاربری</p>
-            <div class="table__box">
-                <table class="table">
-                    <thead role="rowgroup">
-                    <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>نام نقش کاربری</th>
-                        <th>مجوز ها</th>
-                        <th>عملیات</th>
+@section('breadcrumb')
+    <li><a href="{{route('role-permissions.index')}}" title="نقش های کاربری">نقش های کاربری</a></li>
+@endsection
+<div class="row no-gutters  ">
+    <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
+        <p class="box__title">نقش های کاربری</p>
+        <div class="table__box">
+            <table class="table">
+                <thead role="rowgroup">
+                <tr role="row" class="title-row">
+                    <th>شناسه</th>
+                    <th>نام نقش کاربری</th>
+                    <th>مجوز ها</th>
+                    <th>عملیات</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($roles as $role)
+                    <tr role="row" class="">
+                        <td><a href="">{{$role->id}}</a></td>
+                        <td><a href="">{{$role->name}}</a></td>
+                        <td>
+                            <ul>
+                                @foreach($role->permissions as $permission)
+                                        <li>@lang($permission->name)</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                        <td>
+                            <a href=""
+                               onclick="deleteItem(event,'{{route('role-permissions.destroy',$role->id)}}')"                               class="item-delete mlg-15" title="حذف"></a>
+                            <a href="{{route('role-permissions.edit' , $role->id)}}" class="item-edit "
+                               title="ویرایش"></a>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($roles as $role)
-                        <tr role="row" class="">
-                            <td><a href="">{{$role->id}}</a></td>
-                            <td><a href="">{{$role->title}}</a></td>
-                            <td>--</td>
-                            <td>
-                                <a href=""
-                                   onclick="event.preventDefault(); deleteItem(event,'{{route('role-permissions.destroy',$role->id)}}')"
-                                   class="item-delete mlg-15" title="حذف"></a>
-                                <a href="{{route('role-permissions.edit' , $role->id)}}" class="item-edit "
-                                   title="ویرایش"></a>
-                            </td>
-                        </tr>
-                    @endforeach
+                @endforeach
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-4 bg-white">
-            @include('RolePermissions::create')
+                </tbody>
+            </table>
         </div>
     </div>
-@endsection
-@section('css')
-    <link rel="stylesheet" href="/css/jquery.toast.min.css">
+    <div class="col-4 bg-white">
+        @include('RolePermissions::create')
+    </div>
+</div>
 @endsection
 
-@section('js')
-    <script src="/js/jquery.toast.min.js"></script>
-    <script>
-        function deleteItem(event, route) {
-            if (confirm('آیا از حذف این آیتم اطمینان دارید؟')) {
-                $.post(route, {
-                    _method: 'delete', _token: "{{csrf_token()}}"
-                })
-                    .done(function (response) {
-                        event.target.closest('tr').remove()
-                        $.toast({
-                            heading: 'عملیات موفقیت آمیز',
-                            text: response.message,
-                            showHideTransition: 'slide',
-                            icon: 'success'
-                        })
-                    })
-                    .fail()
-            }
-        }
-    </script>
-@endsection
+
+
+

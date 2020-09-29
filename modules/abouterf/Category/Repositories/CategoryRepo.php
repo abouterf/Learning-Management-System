@@ -28,7 +28,7 @@ class CategoryRepo
         return Category::create([
             'title' => $values->title,
             'slug' => $values->slug,
-            'parent_id' => $values->parent,
+            'parent_id' => $values->parent ? $values->parent : null,
         ]);
     }
 
@@ -37,7 +37,7 @@ class CategoryRepo
         Category::where('id', $id)->update([
             'title' => $values->title,
             'slug' => $values->slug,
-            'parent_id' => $values->parent
+            'parent_id' => $values->parent ? $values->parent : null
         ]);
     }
 
