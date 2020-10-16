@@ -1891,6 +1891,10 @@ span.tagRemove:hover {
     padding-top: 10px;
 }
 
+.pr-3 {
+    padding-right: 30px;
+}
+
 .mt-1 {
     margin-top: 10px;
 }

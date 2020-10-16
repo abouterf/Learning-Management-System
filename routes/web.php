@@ -7,7 +7,7 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    auth()->user()->givePermissionTo('manage cats');
+    // auth()->user()->givePermissionTo('teach');
     //    return auth()->user()->permissions;
     // \Spatie\Permission\Models\Permission::create(['name' => 'manage cats']);
     //    auth()->user()->givePermissionTo('manage role_permissions');
