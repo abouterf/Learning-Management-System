@@ -634,16 +634,15 @@ table th {
     content: "\E028";
 }
 
-.sidebar__nav .i-role-permissions a::before {
-    content: "\e084";
-}
-
 .sidebar__nav .i-slideshow a::before {
     content: "\E0f7";
 }
 
 .sidebar__nav .i-ads a::before {
     content: "\E00b";
+}
+.sidebar__nav .i-role-permissions a::before {
+    content: "\E084";
 }
 
 .sidebar__nav .i-banners a::before {
@@ -1890,11 +1889,25 @@ span.tagRemove:hover {
 .pt-1 {
     padding-top: 10px;
 }
-
 .pr-3 {
     padding-right: 30px;
 }
 
-.mt-1 {
-    margin-top: 10px;
+.mt-2 {
+    margin-top: 20px;
+}
+
+.invalid-feedback {
+    color: red;
+}
+.w-100 {
+    width: 100%;
+}
+.text {
+    margin-bottom: 0 !important;
+    margin-top: 15px;
+}
+
+.multi-text {
+    margin-bottom: 15px;
 }
