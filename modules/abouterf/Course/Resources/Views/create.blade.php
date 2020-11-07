@@ -7,7 +7,7 @@
     <div class="row no-gutters  ">
         <div class="col-12 bg-white">
             <p class="box__title">بروزرسانی دوره</p>
-            <form action="{{ route('courses.store') }}" class="padding-30" method="post">
+            <form action="{{ route('courses.store') }}" class="padding-30" method="post" enctype="multipart/form-data">
                 @csrf
                 <x-input name="title" placeholder="عنوان دوره" type="text" required/>
                 <x-input type="text" name="slug" placeholder="نام انگلیسی دوره" class="text-left" required />
@@ -18,49 +18,37 @@
                     <x-input type="text" placeholder="مبلغ دوره" name="price" class="text-left" required />
                     <x-input type="number" placeholder="درصد مدرس" name="percent" class="text-left" required />
                 </div>
-                <select name="teacher_id" required>
+                <x-select name="teacher_id" required>
                     <option value="">انتخاب مدرس دوره</option>
                     @foreach($teachers as $teacher)
-                    <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                    <option value="{{ $teacher->id }}" @if($teacher->id == old('teacher_id')) selected @endif>{{ $teacher->name }}</option>
                     @endforeach
-                </select>
+                </x-select>
+                
                 <x-validation-error field="teacher_id"/>
-                <ul class="tags">
-                    <li class="tagAdd taglist">
-                        <input type="text" name="tags" id="search-field" placeholder="برچسب ها">
-                        <x-validation-error field="tags"/>
-                    </li>
-                </ul>
-                <select name="type" required>
+                <x-tag-select name="tags"></x-tag-select>
+                <x-select name="type" required>
                     <option value="">نوع دوره</option>
                     @foreach(\abouterf\Course\Models\Course::$types as $type)
-                        <option value="{{ $type }}">@lang($type)</option>
+                        <option value="{{ $type }}" @if($type == old('type')) selected @endif>@lang($type)</option>
                     @endforeach
-                </select>
+                </x-select>
                 <x-validation-error field="type"/>
-                <select name="status" required>
+                <x-select name="status" required>
                     <option value="">وضعیت دوره</option>
                     @foreach(\abouterf\Course\Models\Course::$statuses as $status)
-                        <option value="{{ $status }}">@lang($status)</option>
+                        <option value="{{ $status }}" @if($status == old('status')) selected @endif>@lang($status)</option>
                     @endforeach
-                </select>
-                <select name="category_id" required>
+                </x-select>
+                <x-select name="category_id" required>
                     <option value="">دسته بندی</option>
                     @foreach($categories  as $category)
-                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                        <option value="{{ $category->id }}" @if($category->id == old('category_id')) selected @endif>{{ $category->title }}</option>
                     @endforeach
-                </select>
+                </x-select>
                 <x-validation-error field="category_id"/>
-                <div class="file-upload">
-                    <div class="i-file-upload">
-                        <span>آپلود بنر دوره</span>
-                        <input type="file" class="file-upload" id="files" name="image" required/>
-                    </div>
-                    <span class="filesize"></span>
-                    <span class="selectedFiles">فایلی انتخاب نشده است</span>
-                    <x-validation-error field="image"/>
-                </div>
-                <textarea placeholder="توضیحات دوره" name="body" class="text h"></textarea>
+                <x-file placeholder="آپلود بنر دوره" name="image"/>
+                <x-text-area name="body" placeholder="توضیحات دوره" />
                 <x-validation-error field="body"/>
                 <button class="btn btn-webamooz_net">ایجاد دوره</button>
             </form>

@@ -4,6 +4,7 @@ namespace abouterf\Course\Http\Controllers;
 
 use abouterf\Course\Http\Requests\CourseRequest;
 use abouterf\Category\Repositories\CategoryRepo;
+use abouterf\Course\Repositories\CourseRepo;
 use abouterf\User\Repositories\UserRepo;
 use App\Http\Controllers\Controller;
 
@@ -21,7 +22,9 @@ class CourseController extends Controller
         return view('Courses::create', compact('teachers', 'categories'));
     }
 
-    public function store(CourseRequest $request)
+    public function store(CourseRequest $request, CourseRepo $courseRepo)
     {
+        $course = $courseRepo->store($request);
+        return $course;
     }
 }
