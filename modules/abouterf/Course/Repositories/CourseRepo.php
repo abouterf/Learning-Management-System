@@ -12,6 +12,7 @@ class CourseRepo
         return Course::create([
             'teacher_id' => $values->teacher_id,
             'category_id' => $values->category_id,
+            'banner_id' => $values->banner_id,
             'title' => $values->title,
             'slug' => Str::slug($values->slug),
             'priority' => $values->priority,
@@ -21,5 +22,10 @@ class CourseRepo
             'status' => $values->status,
             'body' => $values->body,
         ]);
+    }
+
+    public function paginate()
+    {
+        return Course::paginate();
     }
 }

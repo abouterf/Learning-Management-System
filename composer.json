@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.5",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
@@ -42,7 +43,8 @@
             "abouterf\\Dashboard\\": "modules/abouterf/Dashboard/",
             "abouterf\\Category\\": "modules/abouterf/Category/",
             "abouterf\\RolePermissions\\": "modules/abouterf/RolePermissions/",
-            "abouterf\\Course\\": "modules/abouterf/Course/"
+            "abouterf\\Course\\": "modules/abouterf/Course/",
+            "abouterf\\Media\\": "modules/abouterf/Media/"
         },
         "classmap": [
             "database/seeds",

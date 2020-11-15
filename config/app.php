@@ -180,6 +180,7 @@ return [
         \abouterf\Category\Providers\CategoryServiceProvider::class,
         \abouterf\RolePermissions\Providers\RolePermissionServiceProvider::class,
         \abouterf\Course\Providers\CourseServiceProvider::class,
+        \abouterf\Media\Providers\MediaServiceProvider::class,
     ],
 
     /*
@@ -231,7 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];
