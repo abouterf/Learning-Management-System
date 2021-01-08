@@ -8,10 +8,14 @@ class File extends Component
 {
     public $placeholder;
     public $name;
-    public function __construct($placeholder, $name)
+    public $value;
+
+
+    public function __construct($placeholder, $name, $value = null)
     {
         $this->placeholder = $placeholder;
         $this->name = $name;
+        $this->value = $value;
     }
 
     /**

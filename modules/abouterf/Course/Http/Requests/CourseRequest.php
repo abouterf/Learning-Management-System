@@ -17,7 +17,7 @@ class CourseRequest extends FormRequest
 
     public function rules()
     {
-        return [
+        $rules = [
             'title' => 'required|min:3|max:190',
             'slug' => 'required|min:3|max:190|unique:courses,slug',
             'priority' => 'nullable|numeric',
@@ -27,8 +27,15 @@ class CourseRequest extends FormRequest
             'type' => ['required', Rule::in(Course::$types)],
             'status' => ['required', Rule::in(Course::$statuses)],
             'category_id' => 'required|exists:categories,id',
-            'image' => 'mimes:jpg,jpeg,png,svg,gif'
+            'image' => 'required | mimes:jpg,jpeg,png,svg,gif'
         ];
+
+        if (request()->method() === 'PATCH') {
+            $rules['image'] = 'nullable | mimes:jpg,jpeg,png,svg,gif';
+            $rules['slug'] = 'required|min:3|max:190|unique:courses,slug,' . request()->route('course');
+        }
+
+        return $rules;
     }
 
     public function attributes()

@@ -26,12 +26,13 @@ class CreateCoursesTable extends Migration
             $table->string('percent', 5);
             $table->enum('type', Course::$types);
             $table->enum('status', Course::$statuses);
+            $table->enum('confirmation_status', Course::$confirmation_statuses);
             $table->longText('body')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('CASCADE');
-            $table->foreign('banner_id')->references('id')->on('media')->onDelete('CASCADE');
+            $table->foreign('banner_id')->references('id')->on('media')->onDelete('SET NULL');
         });
     }
 

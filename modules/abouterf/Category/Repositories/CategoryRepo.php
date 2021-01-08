@@ -20,7 +20,7 @@ class CategoryRepo
 
     public function findById($id)
     {
-        return Category::find($id);
+        return Category::findOrFail($id);
     }
 
     public function store($values)

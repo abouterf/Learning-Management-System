@@ -3,5 +3,8 @@
     "cash": "نقدی",
     "completed" : "تکمیل شده",
     "not-completed" : "در حال برگزاری",
-    "locked" : "قفل شده"
+    "locked" : "قفل شده",
+    "accepted" : "تایید شده",
+    "rejected" : "رد شده",
+    "pending" : "در انتظار"
 }

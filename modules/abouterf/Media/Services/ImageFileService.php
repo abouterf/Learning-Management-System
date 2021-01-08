@@ -3,6 +3,7 @@
 namespace abouterf\Media\Services;
 
 use Intervention\Image\Facades\Image;
+use Storage;
 
 class ImageFileService
 {
@@ -20,7 +21,7 @@ class ImageFileService
     private static function resize($img, $dir, $fileName, $extension)
     {
         $img = Image::make($img);
-        $imgs['original'] =  $fileName . $extension;
+        $imgs['original'] =  $fileName . '.' . $extension;
         foreach (self::$sizes as $size) {
             $imgs[$size] =  $fileName . '_' . $size . '.' . $extension;
             $img->resize($size, null, function ($aspect) {
@@ -28,5 +29,12 @@ class ImageFileService
             })->save(storage_path($dir) . $fileName . '_' . $size . '.' . $extension);
         }
         return $imgs;
+    }
+
+    public static function delete($media)
+    {
+        foreach ($media->files as $file) {
+            Storage::delete('public\\' . $file);
+        }
     }
 }

@@ -50,13 +50,13 @@ class RegistrationTest extends TestCase
             'password' => bcrypt('A!123a')
         ]);
         $code = VerifyCodeService::generate();
-        VerifyCodeService::store($user->id, $code,now()->addDay());
+        VerifyCodeService::store($user->id, $code, now()->addDay());
         auth()->loginUsingId($user->id);
         $this->assertAuthenticated();
         $this->post(route('verification.verify'), [
             'verify_code' => $code
         ]);
-        $this->assertEquals(true,$user->fresh()->hasVerifiedEmail());
+        $this->assertEquals(true, $user->fresh()->hasVerifiedEmail());
     }
 
     public function test_verified_user_can_see_home_page()
@@ -73,14 +73,16 @@ class RegistrationTest extends TestCase
      */
     public function registerNewUser()
     {
-        $response = $this->post(route('register'),
+        $response = $this->post(
+            route('register'),
             [
                 'name' => 'Erfan',
                 'email' => 'erfan@mail.com',
                 'mobile' => '9364568585',
                 'password' => 'Ek0930160883@',
                 'password_confirmation' => 'Ek0930160883@'
-            ]);
+            ]
+        );
         return $response;
     }
 }

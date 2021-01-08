@@ -212,6 +212,35 @@ $('.discounts #discounts-field-1').on('click', function (e) {
     $('.discounts .dropdown-select').removeClass('is-active')
 });
 
+//dynamically set 'tr' element we have to pass the element class as forth element and initialize it.
+
+function updateConfirmationStatus(event, route, message ,status , element = 'confirmation-status'){
+    
+    event.preventDefault();
+    if (confirm(message)) {
+        $.post(route, {
+            _method: 'PATCH', _token: $('meta[name="_token"]').attr('content') })
+            .done(function (response) {
+                $(event.target).closest('tr').find('td.'+element).text(status);
+
+                $.toast({
+                    heading: 'عملیات موفقیت آمیز',
+                    text: response.message,
+                    showHideTransition: 'slide',
+                    icon: 'success'
+                });
+            })
+            .fail(function (response) {
+                $.toast({
+                    heading: 'عملیات ناموفق',
+                    text: response.message,
+                    showHideTransition: 'slide',
+                    icon: 'error'
+                });
+            });
+    }
+}
+
 function deleteItem(event, route) {
     event.preventDefault();
     if (confirm('آیا از حذف این آیتم اطمینان دارید؟')) {

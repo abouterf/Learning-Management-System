@@ -4,6 +4,11 @@
         <input type="file" class="file-upload" id="files" name="{{$name}}" required/>
     </div>
     <span class="filesize"></span>
-    <span class="selectedFiles">فایلی انتخاب نشده است</span><br>
+@if(isset($value->thumb))
+<span class="selectedFiles"><img width="80px" src="{{$value->thumb}}" alt=""></span>
+@else
+<span class="selectedFiles">فایلی انتخاب نشده است</span><br>
+
+@endif
     <x-validation-error field="{{$name}}"/>
 </div>
