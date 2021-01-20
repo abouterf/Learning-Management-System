@@ -3,8 +3,11 @@
 namespace abouterf\Course\Providers;
 
 use abouterf\Course\Database\Seeds\RolePermissionTableSeeder;
+use abouterf\Course\Models\Course;
+use abouterf\Course\Policies\CoursePolicy;
 use CodeIgniter\Database\Database;
 use DatabaseSeeder;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class CourseServiceProvider extends ServiceProvider
@@ -17,6 +20,7 @@ class CourseServiceProvider extends ServiceProvider
         $this->loadJsonTranslationsFrom(__DIR__ . '/../Resources/Lang/');
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/Lang/', 'Courses');
         DatabaseSeeder::$seeders[] = RolePermissionTableSeeder::class;
+        Gate::policy(Course::class, CoursePolicy::class);
     }
 
     public function boot()

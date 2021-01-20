@@ -1,5 +1,6 @@
 <?php
 
+use abouterf\RolePermissions\Models\Permission;
 
 Route::get('/', function () {
     return view('index');
@@ -10,8 +11,8 @@ Route::get('/test', function () {
     // auth()->user()->givePermissionTo('teach');
     //    return auth()->user()->permissions;
     // \Spatie\Permission\Models\Permission::create(['name' => 'manage cats']);
-    //    auth()->user()->givePermissionTo('manage role_permissions');
-    //    return auth()->user()->permissions;
+    // auth()->user()->givePermissionTo(Permission::PERMISSION_SUPER_AMDIN);
+    return auth()->user()->permissions;
 });
 
 

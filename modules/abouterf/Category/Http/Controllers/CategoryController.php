@@ -22,6 +22,7 @@ class CategoryController extends Controller
 
     public function index()
     {
+        $this->authorize('manage', Category::class);
         $categories = $this->repo->all();
         return view('Categories::index', compact('categories'));
     }
@@ -54,5 +55,4 @@ class CategoryController extends Controller
         $this->repo->delete($categoryId);
         return AjaxResponse::successResponse();
     }
-
 }

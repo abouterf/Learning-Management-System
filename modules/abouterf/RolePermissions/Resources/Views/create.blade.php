@@ -7,10 +7,10 @@
         <strong>{{$message}}</strong>
     </span>
     @enderror
-    <p class="box__title margin-bottom-15">انتخاب مجوزها</p>
+    <p class="box__title margin-bottom-15 mt-2">انتخاب مجوزها</p>
     @foreach($permissions as $permission)
     <label class="ui-checkbox pt-1 pr-3">
-        <input type="checkbox" name="permissions[{{$permission->name}}]" value="{{$permission->name}}" class="sub-checkbox" data-id="1" @if(is_array(old('permissions')) && array_key_exists($permission->name,old('permissions'))) checked @endif>
+        <input type="checkbox" name="permissions[{{$permission->name}}]" value="{{$permission->name}}" class="sub-checkbox pt-1" data-id="1" @if(is_array(old('permissions')) && array_key_exists($permission->name,old('permissions'))) checked @endif>
         <span class="checkmark"></span>
         @lang($permission->name )
     </label>
@@ -21,5 +21,5 @@
     </span>
     @enderror
     <hr>
-    <button class="btn btn-webamooz_net mt-1">اضافه کردن</button>
+    <button class="btn btn-webamooz_net mt-2">اضافه کردن</button>
 </form>

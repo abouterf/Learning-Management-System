@@ -15,6 +15,8 @@ class CourseController extends Controller
 {
     public function index(CourseRepo $courseRepo)
     {
+        $this->authorize('manage', Course::class);
+
         $courses = $courseRepo->paginate();
 
         return view('Courses::index', compact('courses'));
@@ -22,6 +24,8 @@ class CourseController extends Controller
 
     public function create(UserRepo $userRepo, CategoryRepo $categoryRepo)
     {
+        $this->authorize('create', Course::class);
+
         $teachers = $userRepo->getTeachers();
         $categories = $categoryRepo->all();
         return view('Courses::create', compact('teachers', 'categories'));
@@ -37,9 +41,13 @@ class CourseController extends Controller
 
     public function edit($id, CourseRepo $courseRepo, UserRepo $userRepo, CategoryRepo $categoryRepo)
     {
+
         $teachers = $userRepo->getTeachers();
+
         $categories = $categoryRepo->all();
         $course = $courseRepo->findById($id);
+        $this->authorize('edit', $course);
+
         // dd($course->category_id);
         return view('Courses::edit', compact('course', 'categories', 'course', 'teachers'));
     }
@@ -61,7 +69,10 @@ class CourseController extends Controller
 
     public function destroy($id, CourseRepo $courseRepo)
     {
+
         $course = $courseRepo->findById($id);
+
+        $this->authorize('destroy', $course);
 
         $course->banner ? $course->banner->delete() : null;
 
@@ -72,6 +83,10 @@ class CourseController extends Controller
 
     public function accept($id, CourseRepo $courseRepo)
     {
+        $course = $courseRepo->findById($id);
+
+        $this->authorize('accept', $course);
+
         if ($courseRepo->updateConfirmationStatus($id, Course::CONFIRMATION_STATUS_ACCEPTED)) {
             return AjaxResponse::successResponse();
         }
@@ -80,6 +95,9 @@ class CourseController extends Controller
     }
     public function reject($id, CourseRepo $courseRepo)
     {
+        $course = $courseRepo->findById($id);
+
+        $this->authorize('reject', $course);
         if ($courseRepo->updateConfirmationStatus($id, Course::CONFIRMATION_STATUS_REJECTED)) {
             return AjaxResponse::successResponse();
         }
@@ -88,6 +106,9 @@ class CourseController extends Controller
     }
     public function lock($id, CourseRepo $courseRepo)
     {
+        $course = $courseRepo->findById($id);
+
+        $this->authorize('lock', $course);
         if ($courseRepo->updateStatus($id, Course::CONFIRMATION_STATUS_LOCKED)) {
             return AjaxResponse::successResponse();
         }

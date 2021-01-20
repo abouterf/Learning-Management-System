@@ -16,9 +16,15 @@ class Course extends Model
     static $types = ['free', 'cash'];
     static $statuses = ['completed', 'not-completed', 'locked'];
 
+    const TYPE_FREE = 'free';
+    const TYPE_CASH = 'cash';
+    const STATUS_COMPLETED = 'completed';
+    const STATUS_NOT_COMPLETED = 'not-completed';
+    const STATUS_LOCKED = 'locked';
     const CONFIRMATION_STATUS_ACCEPTED = 'accepted';
     const CONFIRMATION_STATUS_REJECTED = 'rejected';
     const CONFIRMATION_STATUS_LOCKED = 'locked';
+    const CONFIRMATION_STATUS_PENDING = 'pending';
 
     static $confirmation_statuses = [
         self::CONFIRMATION_STATUS_ACCEPTED,
