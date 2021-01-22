@@ -27,7 +27,7 @@ class CourseRequest extends FormRequest
             'type' => ['required', Rule::in(Course::$types)],
             'status' => ['required', Rule::in(Course::$statuses)],
             'category_id' => 'required|exists:categories,id',
-            'image' => 'required | mimes:jpg,jpeg,png,svg,gif'
+            'image' => 'required | mimes:jpg,jpeg,png,svg,gif',
         ];
 
         if (request()->method() === 'PATCH') {

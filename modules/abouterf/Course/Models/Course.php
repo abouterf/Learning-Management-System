@@ -29,7 +29,8 @@ class Course extends Model
     static $confirmation_statuses = [
         self::CONFIRMATION_STATUS_ACCEPTED,
         self::CONFIRMATION_STATUS_REJECTED,
-        self::CONFIRMATION_STATUS_LOCKED
+        self::CONFIRMATION_STATUS_LOCKED,
+        self::CONFIRMATION_STATUS_PENDING
     ];
 
 

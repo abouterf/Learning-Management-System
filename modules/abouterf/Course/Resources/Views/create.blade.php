@@ -40,7 +40,7 @@
                         <option value="{{ $status }}" @if($status == old('status')) selected @endif>@lang($status)</option>
                     @endforeach
                 </x-select>
-                <x-select name="category_id" required>
+                <x-select name="category_id">
                     <option value="">دسته بندی</option>
                     @foreach($categories  as $category)
                         <option value="{{ $category->id }}" @if($category->id == old('category_id')) selected @endif>{{ $category->title }}</option>

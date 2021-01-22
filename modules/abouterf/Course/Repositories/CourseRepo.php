@@ -2,6 +2,7 @@
 
 namespace abouterf\Course\Repositories;
 
+
 use abouterf\Course\Models\Course;
 use Illuminate\Support\Str;
 
@@ -21,6 +22,7 @@ class CourseRepo
             'type' => $values->type,
             'status' => $values->status,
             'body' => $values->body,
+            'confirmation_status' => Course::CONFIRMATION_STATUS_PENDING,
         ]);
     }
 
@@ -29,14 +31,14 @@ class CourseRepo
         return Course::paginate();
     }
 
-    public function findById($id)
+    public function findByid($id)
     {
         return Course::findOrFail($id);
     }
 
     public function update($id, $values)
     {
-        Course::where('id', $id)->update([
+        return Course::where('id', $id)->update([
             'teacher_id' => $values->teacher_id,
             'category_id' => $values->category_id,
             'banner_id' => $values->banner_id,
@@ -55,6 +57,7 @@ class CourseRepo
     {
         return Course::where('id', $id)->update(['confirmation_status' => $status]);
     }
+
     public function updateStatus($id, string $status)
     {
         return Course::where('id', $id)->update(['status' => $status]);

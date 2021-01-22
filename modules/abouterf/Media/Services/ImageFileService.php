@@ -10,13 +10,14 @@ class ImageFileService
     private static $sizes = [300, 600];
     public static function upload($file)
     {
+        // here we replced move with putFileAs facade to make our code testable.
+
         $fileName = uniqid();
         $extension = $file->getClientOriginalExtension();
-        $dir = 'app\public\\';
-        $file->move(storage_path($dir), $fileName . '.' . $extension);
-
-        $path = $dir . '\\' . $fileName . '.' . $extension;
-        return self::resize(storage_path($path), $dir, $fileName, $extension);
+        $dir = 'public\\';
+        Storage::putFileAs($dir, $file, $fileName . '.' . $extension);
+        $path = $dir . $fileName . '.' . $extension;
+        return self::resize(Storage::path($path), $dir, $fileName, $extension);
     }
     private static function resize($img, $dir, $fileName, $extension)
     {
@@ -26,7 +27,7 @@ class ImageFileService
             $imgs[$size] =  $fileName . '_' . $size . '.' . $extension;
             $img->resize($size, null, function ($aspect) {
                 $aspect->aspectRatio();
-            })->save(storage_path($dir) . $fileName . '_' . $size . '.' . $extension);
+            })->save(Storage::path($dir) . $fileName . '_' . $size . '.' . $extension);
         }
         return $imgs;
     }
