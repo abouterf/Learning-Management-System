@@ -2,6 +2,7 @@
 
 namespace abouterf\Course\Models;
 
+use abouterf\Category\Models\Category;
 use abouterf\Media\Models\Media;
 use abouterf\User\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -41,5 +42,10 @@ class Course extends Model
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

@@ -2,15 +2,16 @@
 
 namespace abouterf\RolePermissions\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use abouterf\Category\Responses\AjaxResponse;
 use abouterf\RolePermissions\Http\Requests\RoleRequest;
 use abouterf\RolePermissions\Http\Requests\RoleUpdateRequest;
 use abouterf\RolePermissions\Repositories\PermissionRepo;
 use abouterf\RolePermissions\Repositories\RoleRepo;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use abouterf\Permission\Models\Permission;
+use abouterf\RolePermissions\Models\Role;
 
-class RolePermissionsController
+class RolePermissionsController extends Controller
 {
 
     private $roleRepo;
@@ -22,11 +23,11 @@ class RolePermissionsController
         $this->roleRepo = $roleRepo;
 
         $this->permissionRepo = $permissionRepo;
-
     }
 
     public function index()
     {
+        $this->authorize('index', Role::class);
         $permissions = $this->permissionRepo->all();
         $roles = $this->roleRepo->all();
         return view('RolePermissions::index', compact('roles', 'permissions'));
@@ -34,11 +35,16 @@ class RolePermissionsController
 
     public function store(RoleRequest $request)
     {
+        $this->authorize('create', Role::class);
+
         $this->roleRepo->create($request);
+
+        return redirect(route('role-permissions.index'));
     }
 
     public function edit($roleId)
     {
+        $this->authorize('edit', Role::class);
         $role = $this->roleRepo->findById($roleId);
         $permissions = $this->permissionRepo->all();
         return view('RolePermissions::edit', compact('role', 'permissions'));
@@ -46,6 +52,8 @@ class RolePermissionsController
 
     public function update(RoleUpdateRequest $request, $id)
     {
+        $this->authorize('edit', Role::class);
+
         $this->roleRepo->update($id, $request);
 
         return redirect(route('role-permissions.index'));
@@ -53,6 +61,7 @@ class RolePermissionsController
 
     public function destroy($roleId)
     {
+        $this->authorize('delete', Role::class);
         $this->roleRepo->delete($roleId);
         return AjaxResponse::successResponse();
     }

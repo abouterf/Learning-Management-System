@@ -39,23 +39,13 @@ class CoursePolicy
         return $user->hasPermissionTo(Permission::PERMISSION_MANAGE_OWN_COURSES) &&  $course->teacher_id == $user->id;
     }
 
-    public function destroy(User $user, $course)
+    public function destroy(User $user)
     {
         if ($user->hasPermissionTo(Permission::PERMISSION_MANAGE_COURSES)) return true;
-
-        return $user->hasPermissionTo(Permission::PERMISSION_MANAGE_OWN_COURSES) &&  $course->teacher_id == $user->id;
     }
 
-    public function accept(User $user, $course)
+    public function change_confirmation_status(User $user)
     {
-        return $user->hasPermissionTo(Permission::PERMISSION_MANAGE_COURSES);
-    }
-    public function reject(User $user, $course)
-    {
-        return $user->hasPermissionTo(Permission::PERMISSION_MANAGE_COURSES);
-    }
-    public function lock(User $user, $course)
-    {
-        return $user->hasPermissionTo(Permission::PERMISSION_MANAGE_COURSES);
+        if ($user->hasPermissionTo(Permission::PERMISSION_MANAGE_COURSES)) return true;
     }
 }

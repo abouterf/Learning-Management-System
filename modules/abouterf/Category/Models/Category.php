@@ -22,4 +22,9 @@ class Category extends Model
     {
         $this->hasMany(Category::class, 'parent_id');
     }
+
+    public function courses()
+    {
+        $this->hasMany(Course::class);
+    }
 }

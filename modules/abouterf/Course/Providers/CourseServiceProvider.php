@@ -5,7 +5,6 @@ namespace abouterf\Course\Providers;
 use abouterf\Course\Database\Seeds\RolePermissionTableSeeder;
 use abouterf\Course\Models\Course;
 use abouterf\Course\Policies\CoursePolicy;
-use CodeIgniter\Database\Database;
 use DatabaseSeeder;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;

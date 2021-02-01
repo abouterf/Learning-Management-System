@@ -22,6 +22,9 @@
         </testsuite>
         <testsuite name="Feature">
             <directory suffix="Test.php">./modules/abouterf/Course/Tests/Feature</directory>
+        </testsuite>        
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./modules/abouterf/RolePermissions/Tests/Feature</directory>
         </testsuite>
     </testsuites>
     <filter>
