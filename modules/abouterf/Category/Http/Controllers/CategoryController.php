@@ -7,7 +7,7 @@ namespace abouterf\Category\Http\Controllers;
 use abouterf\Category\Http\Requests\CategoryRequest;
 use abouterf\Category\Models\Category;
 use abouterf\Category\Repositories\CategoryRepo;
-use abouterf\Category\Responses\AjaxResponse;
+use abouterf\Common\Responses\AjaxResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace abouterf\Category\Responses;
+namespace abouterf\Common\Responses;
 
 
 use Illuminate\Http\Response;

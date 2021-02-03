@@ -3,7 +3,7 @@
 namespace abouterf\RolePermissions\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use abouterf\Category\Responses\AjaxResponse;
+use abouterf\Common\Responses\AjaxResponse;
 use abouterf\RolePermissions\Http\Requests\RoleRequest;
 use abouterf\RolePermissions\Http\Requests\RoleUpdateRequest;
 use abouterf\RolePermissions\Repositories\PermissionRepo;

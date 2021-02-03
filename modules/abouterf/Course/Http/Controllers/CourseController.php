@@ -4,8 +4,8 @@ namespace abouterf\Course\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use abouterf\Category\Repositories\CategoryRepo;
-use abouterf\Category\Responses\AjaxResponse;
-use abouterf\Category\Responses\AjaxResponses;
+use abouterf\Common\Responses\AjaxResponse;
+use abouterf\Common\Responses\AjaxResponses;
 use abouterf\Course\Http\Requests\CourseRequest;
 use abouterf\Course\Models\Course;
 use abouterf\Course\Repositories\CourseRepo;
